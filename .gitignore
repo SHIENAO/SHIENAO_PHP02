@@ -3,3 +3,5 @@
 /kadai_index.php
 /kadai_select.php
 /kadai_update.php
+
+git rm --cached<delete.php>
