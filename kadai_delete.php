@@ -31,3 +31,5 @@ if($status==false){
 }
 
 ?>
+
+git rm --cached<kadai_delete.php>
