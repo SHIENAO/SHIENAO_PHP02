@@ -37,3 +37,5 @@ if($status==false){
     redirect("kadai_select.php");
 }
 ?>
+
+git rm --cached<kadai_update.php>

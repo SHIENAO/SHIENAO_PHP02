@@ -52,6 +52,7 @@ if($status==false) {
 
 ?>
 
+git rm --cached<kadai_select.php>
 
 <!DOCTYPE html>
 <html lang="ja">
