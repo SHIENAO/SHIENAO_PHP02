@@ -7,7 +7,7 @@ try {
   //Password:MAMP='root',XAMPP=''
   //xamppの設定だと、パスワードは不要。
   $pdo = new PDO('mysql:dbname=shienao_gs_db_books;charset=utf8;host=mysql57.shienao.sakura.ne.jp','shienao','mocha0428');
-  //$pdo = new PDO('mysql:dbname=gs_db_books;charset=utf8;host=localhost','root','');
+  // $pdo = new PDO('mysql:dbname=gs_db_books;charset=utf8;host=localhost','root','');
 } catch (PDOException $e) {
   exit('DBConnection Error:'.$e->getMessage());
   //errorがあったらメッセージがでるように。
@@ -22,17 +22,28 @@ $status = $stmt->execute();
 $view="";
 if($status==false) {
     //execute（SQL実行時にエラーがある場合）
-  $error = $stmt->errorInfo();
-  exit("SQL_ERROR:".$error[2]);
+    if($status==false)
+      sql_error($stmt);
+
 
 }else{
   //Selectデータの数だけ自動でループしてくれる
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $res = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $view .= "<p>";
-    $view .=$res["booksname"].", ".$res["booksurl"].", ".$res["bookscomment"];
-    //
-    $view .="</p>";
+    $view .= "<br>";
+    $view .= '<a href="kadai_detail.php?id='.h($res["id"]).'">';
+    $view .= h($res["id"])."<br>".h($res["booksname"])."<br>".h($res["booksurl"])."<br>".h($res["bookscomment"]);
+    $view .= '</a>';
+    $view .= "<br>";
+    //以下削除項目
+    $view .= '<a href="kadai_delete.php?id='.h($res["id"]).'">';
+    $view .= "[削除]<br>";
+    $view .= '</a>';
+
+    // $view .= "<p>";
+    // $view .=$res["booksname"].", ".$res["booksurl"].", ".$res["bookscomment"];
+    // //
+    // $view .="</p>";
   }
 
 }
