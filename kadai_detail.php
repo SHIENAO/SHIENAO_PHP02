@@ -57,7 +57,7 @@ if($status==false) {
 //$res = array(["booksname"],["booksurl"],["bookscomment"]);
 
 ?>
-
+git rm --cached<kadai_detail.php>
 
 <!DOCTYPE html>
 <html lang="ja">
