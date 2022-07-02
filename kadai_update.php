@@ -7,17 +7,17 @@ $id    = $_POST["id"];   //idを取得
 
 //2. DB接続します
 include("funcs.php");  //funcs.phpを読み込む（関数群）
-try {
-    //Password:MAMP='root',XAMPP=''
-    //xamppの設定だと、パスワードは不要。
-    $pdo = new PDO('mysql:dbname=shienao_gs_db_books;charset=utf8;host=mysql57.shienao.sakura.ne.jp','shienao','mocha0428');
-    // $pdo = new PDO('mysql:dbname=gs_db_books;charset=utf8;host=localhost','root','');
-  } catch (PDOException $e) {
-    exit('DBConnection Error:'.$e->getMessage());
-    //errorがあったらメッセージがでるように。
-  }
+// try {
+//     //Password:MAMP='root',XAMPP=''
+//     //xamppの設定だと、パスワードは不要。
+//     $pdo = new PDO('mysql:dbname=shienao_gs_db_books;charset=utf8;host=mysql57.shienao.sakura.ne.jp','shienao','mocha0428');
+//     // $pdo = new PDO('mysql:dbname=gs_db_books;charset=utf8;host=localhost','root','');
+//   } catch (PDOException $e) {
+//     exit('DBConnection Error:'.$e->getMessage());
+//     //errorがあったらメッセージがでるように。
+//   }
   
-// $pdo = db_conn();      //DB接続関数
+$pdo = db_conn();      //DB接続関数
 
 
 //３．データ登録SQL作成

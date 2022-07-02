@@ -13,6 +13,8 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
     <div class="navbar-header"><a class="navbar-brand" href="kadai_select.php">Favorites</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="login.php">Login</a></div>
+    <div class="navbar-header"><a class="navbar-brand" href="logout.php">Logout</a></div>
     </div>
   </nav>
 </header>

@@ -1,18 +1,22 @@
 <?php
+//0. SESSION開始！！
+session_start();
 
 require_once('funcs.php');
 
-//1.  DB接続します
-try {
-  //Password:MAMP='root',XAMPP=''
-  //xamppの設定だと、パスワードは不要。
-  $pdo = new PDO('mysql:dbname=shienao_gs_db_books;charset=utf8;host=mysql57.shienao.sakura.ne.jp','shienao','mocha0428');
-  // $pdo = new PDO('mysql:dbname=gs_db_books;charset=utf8;host=localhost','root','');
-} catch (PDOException $e) {
-  exit('DBConnection Error:'.$e->getMessage());
-  //errorがあったらメッセージがでるように。
-}
+sschk();
 
+//1.  DB接続します
+// try {
+//   //Password:MAMP='root',XAMPP=''
+//   //xamppの設定だと、パスワードは不要。
+//   $pdo = new PDO('mysql:dbname=shienao_gs_db_books;charset=utf8;host=mysql57.shienao.sakura.ne.jp','shienao','mocha0428');
+//   // $pdo = new PDO('mysql:dbname=gs_db_books;charset=utf8;host=localhost','root','');
+// } catch (PDOException $e) {
+//   exit('DBConnection Error:'.$e->getMessage());
+//   //errorがあったらメッセージがでるように。
+// }
+$pdo = db_conn();      //DB接続関数
 //２．データ取得SQL作成
 
 $stmt = $pdo->prepare("select * from gs_bm_table");
@@ -51,8 +55,6 @@ if($status==false) {
 //$res = array(["booksname"],["booksurl"],["bookscomment"]);
 
 ?>
-
-git rm --cached<kadai_select.php>
 
 <!DOCTYPE html>
 <html lang="ja">
